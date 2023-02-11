@@ -1,0 +1,216 @@
+.product {
+    &__container {
+        max-width: 1060px;
+    }
+
+    &__wrapper {
+        width: 100%;
+        position: relative;
+        display: flex;
+        justify-content: center;
+
+        @include mq('tablet') {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    &__img {
+        margin-right: 35px;
+
+        @include mq('tablet-2') {
+            margin-right: 20px;
+        }
+
+        @include mq('tablet') {
+            margin-right: 0;
+            margin-bottom: 30px;
+        }
+    }
+
+    &__img img {
+        object-fit: cover;
+
+        @include mq('tablet-2') {
+            min-width: 400px;
+            height: 400px;
+        }
+
+        @include mq('tablet') {
+            height: 460px;
+            object-fit: contain;
+        }
+
+        @include mq('tablet') {
+            min-width: 100px;
+            height: 380px;
+        }
+    }
+
+    &__inner {
+        @include mq('tablet') {
+            width: 100%;
+        }
+    }
+
+    &__article-title {
+        margin-bottom: 15px;
+    }
+
+    &__text {
+        max-width: 530px;
+        font-size: 14px;
+        color: $gray;
+        margin-bottom: 30px;
+
+        @include mq('desktop') {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+.product-filter {
+    &__caption {
+        font-size: 20px;
+        font-weight: 400;
+        color: $accent;
+        margin-bottom: 20px;
+    }
+
+    &__list {
+        display: flex;
+        align-items: center;
+
+        &:not(:last-child) {
+            margin-bottom: 30px;
+        }
+    }
+
+    &__item {
+        &:not(:last-child) {
+            margin-right: 10px;
+        }
+    }
+
+    &__size-checkbox {
+        position: absolute;
+
+        &+.product-filter__size-label {
+            border: 1px solid $sizeCheck;
+            border-radius: 4px;
+            background-color: $white;
+            color: $sizeCheck;
+            cursor: pointer;
+            padding: 10px 20px;
+            transition: border-color .3s, background-color .3s, color .3s;
+
+            @include mq('tablet-2') {
+                padding: 8px 15px;
+            }
+        }
+
+        &+.product-filter__size-label:focus {
+            outline: 2px solid $accent;
+        }
+
+        &:not(:checked)+.product-filter__size-label {
+            &:hover {
+                border-color: transparent;
+            }
+        }
+
+        &:checked+.product-filter__size-label {
+            color: $white;
+            background-color: $sizeCheck;
+        }
+    }
+
+    &__color-checkbox {
+        position: absolute;
+
+        &+.product-filter__color-label {
+            position: relative;
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            border-radius: 4px;
+            color: $sizeCheck;
+            cursor: pointer;
+
+            @include mq('tablet-2') {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        &+.product-filter__color-label--purple {
+            background-color: $purple;
+        }
+
+        &+.product-filter__color-label--pink {
+            background-color: $pink;
+        }
+
+        &+.product-filter__color-label--green {
+            background-color: $green;
+        }
+
+        &+.product-filter__color-label:focus {
+            outline: 2px solid $accent;
+        }
+
+        &:checked+.product-filter__color-label {
+            &::before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translateY(-50%) translateX(-50%);
+                width: 24px;
+                height: 24px;
+                mask-image: url('../images/sprite.svg#icon-check');
+                background-color: $white;
+                transition: background-color .9s;
+            }
+        }
+    }
+
+    &__box {
+        position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        border: 1px solid $bgColorDark;
+        padding: 32px;
+
+        @include mq('tablet-2') {
+            justify-content: flex-start;
+            flex-direction: column;
+            align-items: flex-start;
+            border: none;
+            padding: 0;
+        }
+    }
+
+    &__counter {
+        margin-right: 35px;
+
+        @include mq('desktop') {
+            margin-right: 20px
+        }
+
+        @include mq('tablet-2') {
+            margin-right: 0;
+            margin-bottom: 30px;
+        }
+    }
+
+    &__main-btn {
+        max-width: 325px;
+        text-align: center;
+        width: 100%;
+        border-radius: 4px;
+        padding: 12px 30px;
+    }
+}

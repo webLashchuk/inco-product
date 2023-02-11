@@ -1,0 +1,189 @@
+$primary: #337f94;
+$accent: #005369;
+$white: #ffffff;
+$iconBar: #8dd6ea;
+$hoverLink: #abe7f8;
+$orange: #ffc267;
+$dark: #353535;
+$bgColor: #f6fdff;
+$bgColorDark: #ecf6fa;
+$tgIcon: #36A1D5;
+$vbIcon: #8C66A9;
+$black: #000000;
+$mobileBg: #015F79F2;
+$gray: #6b6b6b;
+$paginationActive: #e4f1f6;
+$disabled: #c6dee4;
+$sizeCheck: #4db2ce;
+$purple: #362b87;
+$pink: #aa1492;
+$green: #0fc08b;
+$titleColor: #005F79;
+$infoFormBorder: #c7d7df;
+$printMenuBrd: #e7f0f4;
+$printMenuBg: #fafdfe;
+
+$breakpoints: (
+  "phone-2": 375px,
+  "phone": 560px,
+  "tablet": 768px,
+  "tablet-2": 992px,
+  "desktop": 1440px
+);
+
+@use "sass:math";
+
+@mixin mq($width, $type: max) {
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
+
+    @if $type ==max {
+      $width: $width - 1px;
+    }
+
+    @media only screen and (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}
+
+@mixin recolor($color: #000) {
+  $r: math.div(red($color), 255);
+  $g: math.div(green($color), 255);
+  $b: math.div(blue($color), 255);
+  $a: alpha($color);
+
+
+  $lightness: lightness($color);
+  filter: saturate(0%) brightness(0%) invert($lightness) opacity($a);
+
+  $svg-filter-id: "recolor";
+  filter: url('data:image/svg+xml;utf8,\
+  <svg xmlns="http://www.w3.org/2000/svg">\
+    <filter id="#{$svg-filter-id}" color-interpolation-filters="sRGB">\
+      <feColorMatrix type="matrix" values="\
+       0 0 0 0 #{$r}\
+       0 0 0 0 #{$g}\
+       0 0 0 0 #{$b}\
+       0 0 0 #{$a} 0\
+      "/>\
+    </filter>\
+  </svg>\
+  ##{$svg-filter-id}');
+}
+
+@mixin line-clamp($lines: 1) {
+  @if $lines <=1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  @else {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+  }
+}
+
+@mixin r($height) {
+  @media (max-height: #{$height}px) {
+    @content;
+  }
+}
+
+%basket-grid {
+  font-size: 14px;
+  color: $gray;
+  display: grid;
+}
+
+%basket-font {
+  font-size: 20px;
+  font-weight: 500;
+  color: $titleColor;
+}
+
+%social-link {
+  &::before {
+    background-color: $tgIcon;
+  }
+
+  &::after {
+    background-color: $vbIcon;
+  }
+
+  &:hover {
+
+    &::before,
+    &::after {
+      background-color: $accent;
+    }
+  }
+
+  &:active {
+
+    &::before,
+    &::after {
+      background-color: $orange;
+    }
+  }
+}
+
+%input {
+  width: 100%;
+  border: 1px solid $infoFormBorder;
+  border-radius: 4px;
+  background-color: $white;
+  padding: 12px 15px;
+  transition: border-color .3s;
+
+  &::placeholder {
+    font-size: 14px;
+    color: $gray;
+    transition: color .3s;
+  }
+
+  &:focus {
+    border-color: $orange;
+    outline: transparent;
+  }
+
+  &:hover {
+    &::placeholder {
+      color: $black;
+    }
+  }
+
+  &:active {
+    &::placeholder {
+      color: transparent;
+    }
+  }
+}
+
+%overlay {
+  position: fixed;
+  background-color: $black;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 3;
+  transition: opacity 1s;
+}
+
+%logo-action {
+  transition: opacity .3s;
+    &:hover {
+      opacity: 0.7;
+    }
+    &:active {
+      opacity: 0.9;
+    }
+}

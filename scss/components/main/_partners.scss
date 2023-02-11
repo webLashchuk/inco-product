@@ -1,0 +1,78 @@
+.partners {
+    padding-bottom: 180px;
+
+    @include mq('tablet-2') {
+        padding-bottom: 80px;
+    }
+
+    @include mq('phone') {
+        padding-bottom: 40px;
+    }
+
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @include mq('tablet-2') {
+            gap: 30px;
+        }
+        
+        @include mq('tablet') {
+            flex-wrap: wrap;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        @include mq('tablet') {
+            justify-content: center;
+            gap: 20px;
+        }
+
+       
+    }
+
+    &__item {
+
+        &:not(:last-child) {
+            margin-right: 10px;
+
+            @include mq('tablet') {
+                margin-right: 20px;
+            }
+        }
+        @include mq('desktop') {
+            &--aster {
+                max-width: 149px;
+            }
+
+            &--magecom {
+                max-width: 130px;
+            }
+
+            &--baker {
+                max-width: 51px;
+            }
+
+            &--xmotors {
+                max-width: 139px;
+            }
+
+            &--quantum {
+                max-width: 109px;
+            }
+
+            &--king {
+                max-width: 72px;
+            }
+        }
+    }
+
+    &__item img {
+        object-fit: contain;
+
+        @include mq('phone') {
+            width: 100%;
+        }
+    }
+}

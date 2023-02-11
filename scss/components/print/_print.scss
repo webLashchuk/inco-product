@@ -1,0 +1,208 @@
+.print {
+    &__container {
+        padding: 0;
+    }
+
+    &__wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 695px);
+        justify-content: center;
+        grid-gap: 45px;
+
+        @include mq('desktop') {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        @include mq('tablet-2') {
+            gap: 20px;
+        }
+
+        @include mq('tablet') {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__item {
+        position: relative;
+        
+        &--tab {
+            max-width: 695px;
+            height: 430px;
+            cursor: pointer;
+
+            &:hover {
+                &>.print__btn {
+                    color: $accent;
+
+                    &::before {
+                        border-top: 10px solid $accent;
+                    }
+                }
+            }
+
+            &:active {
+                &>.print__btn {
+                    color: $primary;
+
+                    &::before {
+                        border-top: 10px solid $primary;
+                    }
+                }
+            }
+
+            @include mq('desktop') {
+                height: 330px;
+            }
+
+            @include mq('tablet-2') {
+                height: 280px;
+            }
+
+            @include mq('tablet') {
+                margin: 0 auto;
+            }
+
+            @include mq('tablet') {
+                &:nth-child(1) {
+                    order: 1;
+                }
+
+                &:nth-child(2) {
+                    order: 3;
+                }
+
+                &:nth-child(5) {
+                    order: 5;
+                }
+
+                &:nth-child(6) {
+                    order: 7;
+                }
+
+                &:nth-child(9) {
+                    order: 9;
+                }
+
+                &:nth-child(10) {
+                    order: 11;
+                }
+
+                &:nth-child(13) {
+                    order: 13;
+                }
+            }
+
+        }
+
+        &--center {
+            max-width: 695px;
+            grid-column: 1 / 3;
+            margin: 0 auto;
+
+            @include mq('tablet') {
+                grid-column: 1 / 2;
+            }
+        }
+
+        &--t-shirt,
+        &--sweatshirt,
+        &--caps,
+        &--cups,
+        &--sert,
+        &--pazzle,
+        &--bags {
+            display: none;
+            grid-column: 1 / 3;
+
+            @include mq('tablet') {
+                grid-column: 1 / 2;
+            }
+        }
+
+        @include mq('tablet') {
+            &--t-shirt {
+                order: 2;
+            }
+
+            &--sweatshirt {
+                order: 4;
+            }
+
+            &--caps {
+                order: 6;
+            }
+
+            &--cups {
+                order: 8;
+            }
+
+            &--sert {
+                order: 10;
+            }
+
+            &--pazzle {
+                order: 12;
+            }
+
+            &--bags {
+                order: 14;
+            }
+        }
+    }
+
+    &__img {
+        width: 100%;
+    }
+
+    &__img img {
+        object-fit: cover;
+
+        @include mq('desktop') {
+            height: 330px;
+        }
+
+        @include mq('tablet-2') {
+            height: 280px;
+        }
+    }
+
+    &__btn {
+        position: absolute;
+        width: 100%;
+        text-align: left;
+        font-size: 30px;
+        font-weight: 700;
+        color: $white;
+        padding: 40px;
+        bottom: 0;
+        cursor: pointer;
+        transition: color .3s;
+
+        @include mq('tablet-2') {
+            font-size: 24px;
+        }
+
+        @include mq('phone') {
+            padding: 20px;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            right: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0px;
+            height: 0px;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid $white;
+            transition: border-color .3s;
+
+            @include mq('phone') {
+                right: 20px;
+            }
+        }
+    }
+}

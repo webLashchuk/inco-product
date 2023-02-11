@@ -1,0 +1,656 @@
+.print-menu {
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: -12px;
+        width: 24px;
+        height: 24px;
+        background-color: $printMenuBg;
+        border-top: 1px solid $printMenuBrd;
+        border-left: 1px solid $printMenuBrd;
+        transform: rotate(45deg);
+    }
+
+    &--left {
+        &::before {
+            left: 30%;
+        }
+    }
+    
+    &--right {
+        &::before {
+            right: 30%;
+        }
+        
+        @include mq('tablet') {
+            &::before {
+                left: 30%;
+            }
+        }
+    }
+
+    &__list {
+        font-size: 14px;
+        border-radius: 4px 4px 0 0;
+        background-color: $printMenuBg;
+        border: 1px solid $printMenuBrd;
+        border-bottom: 4px solid $orange;
+        display: grid;
+        grid-template-columns: 560px 330px 370px;
+        grid-gap: 20px 45px;
+        padding: 30px 40px;
+
+        @include mq('desktop') {
+            grid-template-columns: 1fr 330px 380px;
+            grid-template-rows: 1fr;
+        }
+
+        @include mq('tablet-2') {
+            grid-template-columns: 1fr minmax(200px, 1fr) minmax(250px, 1fr);
+            grid-gap: 20px;
+            padding: 30px 20px;
+        }
+
+        @include mq('tablet') {
+            grid-template-columns: minmax(250px, 1fr);
+            grid-gap: 0;
+            padding: 20px 0 0;
+        }
+    }
+
+    &__main-btn {
+        border-radius: 99px;
+        padding: 13px 53px;
+    }
+
+    &__colors-container {
+        width: 380px;
+        display: flex;
+        margin-bottom: 35px;
+
+        @include mq('tablet-2') {
+            max-width: 370px;
+            width: 100%;
+            gap: 20px;
+            flex-wrap: wrap
+        }
+
+        @include mq('tablet') {
+            max-width: 100%;
+            padding: 0 10px 15px;
+            border-bottom: 2px solid $infoFormBorder;
+            margin-bottom: 15px;
+        }
+    }
+
+    &__title {
+        @extend%basket-font;
+        white-space: nowrap;
+        font-weight: 400;
+        margin-bottom: 20px;
+
+        &--small {
+            color: accent;
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        @include mq('tablet') {
+            padding: 0 10px;
+        }
+    }
+
+    &__filter-list {
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 15px;
+
+        &:not(:last-child, :first-child, .print-menu__filter-list--size) {
+            margin-bottom: 30px;
+
+            @include mq('tablet') {
+                margin-bottom: 15px;
+            }
+        }
+
+        &--size {
+            margin-bottom: 15px;
+        }
+
+        &--type {
+            @include mq('tablet-2') {
+                flex-direction: column;
+                align-items: normal;
+                gap: 10px;
+            }
+        }
+
+        @include mq('tablet') {
+            padding: 0 10px 15px;
+
+            &:not(:last-child) {
+                border-bottom: 2px solid $infoFormBorder;
+            }
+        }
+
+        &--gender {
+            @include mq('tablet-2') {
+                padding-bottom: 50px;
+            }
+        }
+    }
+
+    &__filter-item {
+        position: relative;
+
+        &--dimension {
+            display: none;
+
+            @include mq('tablet') {
+                width: 100%;
+            }
+        }
+    }
+
+    &__container {
+        font-size: 16px;
+        color: accent;
+        margin-bottom: 25px;
+
+        @include mq('tablet') {
+            padding: 0 10px;
+            margin-bottom: 15px;
+        }
+    }
+
+    &__checkbox {
+        position: absolute;
+        white-space: nowrap;
+
+        &+.print-menu__label {
+            display: block;
+            border: 1px solid $sizeCheck;
+            border-radius: 4px;
+            background-color: $white;
+            color: $sizeCheck;
+            padding: 10px 20px;
+            transition: border-color .3s, background-color .3s, color .3s;
+            cursor: pointer;
+
+            &--cloth {
+                display: block;
+                position: relative;
+                width: 125px;
+                text-align: center;
+                padding: 100px 10px 25px;
+
+                @include mq('tablet-2') {
+                    max-width: 270px;
+                    width: 100%;
+                    text-align: left;
+                    padding: 24px 10px 24px 66px;
+                }
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 25px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 70px;
+                    height: 60px;
+                    mask-position: center;
+                    mask-repeat: no-repeat;
+                    background-color: $iconBar;
+
+                    @include mq('tablet-2') {
+                        width: 40px;
+                        height: 35px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        left: 18px;
+                    }
+                }
+            }
+
+            &--t-shirt {
+                &::before {
+                    mask-image: url('../images/sprite.svg#t-shirt');
+                }
+            }
+
+            &--polo {
+                &::before {
+                    mask-image: url('../images/sprite.svg#polo');
+                }
+            }
+
+            &--long-sleeve {
+                &::before {
+                    mask-image: url('../images/sprite.svg#t-shirt');
+                }
+            }
+        }
+
+        &+.print-menu__label-color {
+            display: block;
+            color: $white;
+            background-size: cover;
+            background-repeat: no-repeat;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: box-shadow .3s;
+
+            &--wh {
+                color: $black;
+                border-color: $gray;
+            }
+
+            &--bg {
+                color: $black;
+                background-image: url('../images/print/bg-color.jpg');
+            }
+
+            &--bk {
+                background-color: $black;
+            }
+
+            &--gf {
+                background-color: #464742;
+            }
+
+            &--bu {
+                background-color: #551f36;
+            }
+
+            &--fu {
+                background-color: #d53589;
+            }
+
+            &--rd {
+                background-color: #c6011d;
+            }
+
+            &--or {
+                background-color: #f76711;
+            }
+
+            &--sa {
+                background-color: #bf9e6b;
+            }
+
+            &--lm {
+                background-color: #6bb012;
+            }
+
+            &--kg {
+                background-color: #018b51;
+            }
+
+            &--bg-g {
+                background-color: #006407;
+            }
+
+            &--sk {
+                background-color: #9abbe3;
+            }
+
+            &--rb {
+                background-color: #003095;
+            }
+
+            &--pu {
+                background-color: #3f1166;
+            }
+
+            &--nv {
+                background-color: #000e2b;
+            }
+
+            &--tu {
+                background-color: #0098a9;
+            }
+
+            &--sy {
+                background-color: #ebb901;
+            }
+
+            &--ch {
+                background-color: #412920;
+            }
+        }
+
+        &+.print-menu__label:focus {
+            outline: 2px solid $accent;
+        }
+
+        &:not(:checked)+.print-menu__label {
+            &:hover {
+                border-color: transparent;
+            }
+        }
+
+        &:checked+.print-menu__label {
+            color: $white;
+            background-color: $sizeCheck;
+
+            &--cloth {
+                &::before {
+                    background-color: $white;
+                }
+            }
+
+            &--size {
+                &:hover {
+                    &+.print-menu__size {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        &:checked+.print-menu__label-color {
+            box-shadow: 0 0 0 2px $sizeCheck;
+        }
+    }
+
+    &__label {
+        white-space: nowrap;
+    }
+
+    &__check {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+
+        &+.print-menu__check-label {
+            display: inline-block;
+            position: relative;
+            padding-left: 30px;
+
+        }
+
+        &+.print-menu__check-label::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+            width: 18px;
+            height: 18px;
+            border: 2px solid $accent;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: border-color .3s;
+        }
+
+        &+.print-menu__check-label:focus {
+            &::before {
+                border-color: $primary;
+            }
+        }
+
+        &:not(:checked)+.print-menu__check-label {
+            &:hover {
+                &::before {
+                    border-color: $primary;
+                }
+            }
+        }
+
+        &:checked+.print-menu__check-label {
+            &::before {
+                content: "";
+                mask-image: url('../images/sprite.svg#checked');
+                background-color: $orange;
+                border-color: $orange;
+                width: 18px;
+                height: 18px;
+            }
+        }
+    }
+
+    &__colors {
+        max-width: 240px;
+        display: flex;
+        text-transform: uppercase;
+        flex-wrap: wrap;
+        gap: 10px;
+        color: $white;
+
+        @include mq('desktop') {
+            max-width: 200px;
+            flex-wrap: wrap;
+        }
+    }
+
+    &__cloth {
+        min-width: 126px;
+        margin-right: 15px;
+    }
+
+    &__cloth img {
+        margin-bottom: 10px;
+    }
+
+    &__caption {
+        position: relative;
+        text-align: center;
+        text-decoration: underline;
+        text-decoration-skip-ink: none;
+        cursor: pointer;
+
+        &--color {
+            &::before {
+                content: "Нанесение методом термоперенос можно сделать на ткань любого состава (исключение составляет спанбонд, ткани портящиеся под воздействием высокой температуры или обработанные специфической пропиткой).";
+                opacity: 0;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: 30px;
+                font-size: 12px;
+                font-weight: 500;
+                text-align: left;
+                width: 330px;
+                background-color: $white;
+                pointer-events: none;
+                box-shadow: 0px 12.5216px 10.0172px rgba(0, 0, 0, 0.035), 0px 6.6501px 5.32008px rgba(0, 0, 0, 0.0282725), 0px 2.76726px 2.21381px rgba(0, 0, 0, 0.0196802);
+                border-radius: 4px;
+                padding: 10px 30px 10px 15px;
+                transition: opacity .3s;
+
+                @include mq('desktop') {
+                    width: 200px;
+                    padding: 10px;
+                    transform: translateX(-40%);
+                }
+            }
+
+            &::after {
+                content: "";
+                opacity: 0;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 0px;
+                height: 0px;
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                border-top: 10px solid $white;
+                bottom: 20px;
+                transition: opacity .2s;
+
+                @include mq('desktop') {
+                    bottom: 22px;
+                }
+            }
+        }
+
+        &:hover {
+
+            &::before,
+            &::after {
+                opacity: 1;
+            }
+        }
+
+        &--size {
+            &:hover {
+                &+.print-menu__size {
+                    opacity: 1;
+                    left: 160px;
+                    bottom: 40px;
+                }
+            }
+        }
+    }
+
+    &__footer {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $printMenuBg;
+        border: 1px solid $printMenuBrd;
+        border-radius: 0 0 4px 4px;
+        color: $accent;
+        padding: 15px;
+
+        &::before {
+            content: "";
+            position: absolute;
+            background-image: url('../images/print-menu-bg.svg');
+            pointer-events: none;
+            background-size: cover;
+            background-position: center;
+            inset: 0;
+        }
+
+        @include mq('desktop') {
+            flex-wrap: wrap;
+        }
+
+        @include mq('tablet') {
+            gap: 25px;
+        }
+    }
+
+    &__total {
+        margin-right: 15px;
+    }
+
+    &__total-price {
+        font-size: 30px;
+        font-weight: 700;
+        margin-right: 50px;
+    }
+
+    &__size {
+        opacity: 0;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        pointer-events: none;
+        bottom: 60px;
+        max-width: 326px;
+        border-radius: 4px;
+        z-index: 1;
+        background-color: $white;
+        box-shadow: 0px 12.5216px 10.0172px rgba(0, 0, 0, 0.035), 0px 6.6501px 5.32008px rgba(0, 0, 0, 0.0282725), 0px 2.76726px 2.21381px rgba(0, 0, 0, 0.0196802);
+        transition: opacity .3s;
+
+        &--kids {
+            @include mq('tablet-2') {
+                display: none;
+            }
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 0px;
+            height: 0px;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid $white;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+}
+
+.dimension {
+    position: relative;
+    font-size: 12px;
+    font-weight: 500;
+    color: $accent;
+    overflow: hidden;
+    border-radius: 4px;
+    line-height: 1;
+    border-radius: 4px;
+    border-collapse: collapse;
+    text-align: center;
+
+    &__header {
+        border-bottom: 1px solid $infoFormBorder;
+        background-color: $printMenuBg;
+        white-space: nowrap;
+        padding: 10px 10px;
+
+        @include mq('phone-2') {
+            padding: 6px 8px;
+        }
+
+        &:not(:last-child) {
+            border-right: 1px solid $infoFormBorder;
+        }
+    }
+
+    &__header span {
+        display: block;
+    }
+
+    tr {
+        &:not(:last-child) {
+            border-bottom: 1px solid $infoFormBorder;
+        }
+    }
+
+    td {
+        padding: 10px 12px;
+
+        &:not(:last-child) {
+            border-right: 1px solid $infoFormBorder;
+        }
+
+        &:last-child {
+            padding: 10px 10px;
+        }
+    }
+
+    &__info {
+        position: relative;
+        font-size: 10px;
+        color: $sizeCheck;
+        text-align: left;
+        padding-left: 30px;
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+            mask-image: url('../images/sprite.svg#icon-info');
+            background-color: $sizeCheck;
+        }
+    }
+}

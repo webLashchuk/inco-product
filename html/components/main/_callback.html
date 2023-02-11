@@ -1,0 +1,22 @@
+<div class="callback-overlay"></div>
+<form class="callback" action="#" id="modal">
+    <button class="callback__close" type="button">
+        <span class="sr-only">Закрыть меню</span>
+    </button>
+    <h2 class="title callback__title">Обратный звонок</h2>
+    <div class="callback__item">
+        <label class="callback__label " for="name">
+            Ваше имя
+        </label>
+        <input class="callback__field" type="text" id="name" name="name" placeholder="Ваше имя"
+            required="required">
+    </div>
+    <div class="callback__item callback__item--phone">
+        <label class="callback__label" for="tel">
+            Телефон
+        </label>
+        <input class="callback__field callback__field" type="tel" id="tel" name="tel"
+            placeholder="+38(ХХХ) ХХХ-ХХ-ХХ" required="required">
+    </div>
+    <button class="main-btn callback__main-btn" type="button">Отправить</button>
+</form>

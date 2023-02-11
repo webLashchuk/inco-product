@@ -1,0 +1,171 @@
+.info {
+    font-size: 16px;
+
+    &__container {
+        max-width: 800px;
+    }
+
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        color: $black;
+        margin-bottom: 60px;
+
+        @include mq('phone') {
+            flex-direction: column;
+        }
+    }
+
+    &__inner {
+        @include mq('phone') {
+            margin-bottom: 15px;
+        }
+    }
+
+    &__title {
+        margin-bottom: 40px;
+
+        @include mq('phone') {
+            margin-bottom: 30px;
+        }
+    }
+
+    & .contacts {
+        padding-top: 0;
+        margin-bottom: 30px;
+
+        @include mq('phone') {
+            margin-bottom: 20px;
+        }
+
+        &__item {
+            &:not(:last-child) {
+                margin-bottom: 0;
+            }
+        }
+
+        &__link {
+            &--social {
+                @extend %social-link;
+            }
+        }
+    }
+
+    &__caption {
+        @extend %basket-font;
+        margin-bottom: 15px;
+    }
+
+    &__address {
+        font-style: normal;
+        margin-bottom: 30px;
+
+        @include mq('phone') {
+            margin-bottom: 10px;
+        }
+    }
+
+    &__location {
+        position: relative;
+        font-size: 14px;
+        font-weight: 500;
+        color: $titleColor;
+        padding-left: 30px;
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 24px;
+            height: 24px;
+            mask-image: url('../images/sprite.svg#icon-location');
+            background-color: $orange;
+        }
+    }
+}
+
+.schedule {
+    margin-bottom: 45px;
+
+    @include mq('phone') {
+        margin-bottom: 20px;
+    }
+
+    &__days {
+        display: block;
+        color: $titleColor;
+        margin-bottom: 5px;
+    }
+
+    &__time {
+        margin-bottom: 20px;
+
+        @include mq('phone') {
+            margin-bottom: 10px;
+        }
+
+        span {
+            margin-right: 2px;
+        }
+    }
+}
+
+.callback-form {
+    @include mq('tablet') {
+        margin: 0 auto;
+    }
+
+    @include mq('phone') {
+        margin: 0;
+    }
+
+    &__caption {
+        @extend %basket-font;
+        margin-bottom: 10px;
+
+    }
+
+    &__item {
+        width: 430px;
+
+        @include mq('tablet') {
+            width: 350px;
+        }
+
+        @include mq('phone') {
+            width: 100%;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 10px;
+        }
+
+        &:last-child {
+            margin-bottom: 30px;
+        }
+    }
+
+    &__field {
+        @extend %input;
+
+        &--textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+    }
+
+    &__main-btn {
+        max-width: 430px;
+        width: 100%;
+        border-radius: 4px;
+        padding: 12px 15px;
+    }
+
+}
+
+#map {
+    width: 100%;
+    height: 330px;
+}

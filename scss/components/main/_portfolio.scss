@@ -1,0 +1,68 @@
+.portfolio {
+    padding: 80px 0 70px;
+    transition: padding .6s;
+
+    @include mq('tablet-2') {
+        padding: 50px 0 50px;
+    }
+
+    @include mq('phone') {
+        &--active {
+            padding: 500px 0 70px;
+        }
+    }
+
+    &__title {
+        margin-bottom: 70px;
+
+        @include mq('tablet-2') {
+            margin-bottom: 40px;
+        }
+    }
+
+    &__inner {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(450px, 480px));
+        grid-template-rows: repeat(3, 250px);
+
+        @include mq('desktop') {
+            grid-template-columns: repeat(3, minmax(250px, 450px));
+            grid-template-rows: repeat(3, 1fr);
+        }
+
+        @include mq('tablet-2') {
+            grid-template-columns: repeat(2, minmax(250px, 450px));
+            grid-template-rows: repeat(4, 1fr);
+            justify-content: center;
+
+        }
+
+        @include mq('phone') {
+            grid-template-columns: repeat(1, minmax(175px, 450px));
+        }
+
+        @include mq('phone-2') {
+            grid-template-columns: repeat(1, minmax(175px, 450px));
+        }
+    }
+
+    &__item {
+        overflow: hidden;
+
+        @include mq('tablet-2') {
+            &:last-child {
+                display: none;
+            }
+        }
+    }
+
+    &__link img {
+        width: 100%;
+        object-fit: contain;
+        transition: transform .3s;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+}

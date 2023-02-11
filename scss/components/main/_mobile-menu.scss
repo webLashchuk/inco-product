@@ -1,0 +1,91 @@
+.mobile-menu {
+    display: none;
+    font-size: 18px;
+
+    @include mq('desktop') {
+        display: block;
+    }
+
+    @include mq('tablet') {
+        font-size: 16px;
+    }
+
+    &__inner {
+        @include mq('desktop') {
+            display: block;
+            position: fixed;
+            width: 80%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            transform: translateX(-200%);
+            background-color: $mobileBg;
+            transition: transform .7s;
+            overflow: auto;
+            z-index: 3;
+
+            &::-webkit-scrollbar {
+                width: 0;
+            }
+
+        }
+
+        &.mobile-menu__inner--active {
+            transform: translateX(0);
+        }
+    }
+
+    &__item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: $white;
+        width: 100%;
+
+        @include mq('phone-2') {
+            width: 100%;
+        }
+        &:first-child {
+            padding-left: 10px;
+        }
+
+        &:not(:last-child) {
+            border-bottom: 1px solid $white;
+        }
+    }
+
+    &__item .contacts {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        color: $white;
+        padding: 0;
+    }
+
+    &__item .contacts__item {
+        min-width: 100%;
+
+        &:not(:last-child) {
+            margin-bottom: 0;
+        }
+    }
+
+    &__item .contacts__link {
+        padding: 10px 55px 10px 10px;
+
+        &::before,
+        &::after {
+            background-color: $white;
+        }
+    }
+
+    &__logo img {
+        padding: 10px;
+    }
+
+    &__logo img {
+        filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(305deg) brightness(102%) contrast(102%);
+        max-width: 80px;
+        height: auto;
+    }
+}

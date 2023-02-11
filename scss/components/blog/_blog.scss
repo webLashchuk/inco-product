@@ -1,0 +1,96 @@
+.blog {
+    &__title {
+        margin-bottom: 35px;
+    }
+
+    &__wrapper {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 45px;
+        margin-bottom: 60px;
+
+        @include mq('tablet-2') {
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+    }
+}
+
+.article {
+    max-width: 445px;
+    width: 100%;
+
+    @include mq('tablet-2') {
+        max-width: 350px;
+    }
+
+    @include mq('tablet-2') {
+        max-width: 445px;
+    }
+
+    &__image {
+        display: inline-block;
+        margin-bottom: 15px;
+        transition: transform .3s;
+
+        @include mq('tablet') {
+            margin-bottom: 5px;
+        }
+
+        @include mq('phone-2') {
+            margin-bottom: 10px;
+        }
+        
+        &:hover {
+            transform: scale(1.03);
+        }
+    }
+    
+    &__image img {
+        object-fit: contain;
+
+        @include mq('phone-2') {
+            max-height: 180px;
+        }
+    }
+
+    &__title {
+        font-size: 20px;
+        font-weight: 500;
+        color: $accent;
+        margin-bottom: 5px;
+    }
+    
+    &__text {
+        font-size: 16px;
+        color: $black;
+        @include line-clamp(3);
+        margin-bottom: 30px;
+        
+        @include mq('tablet') {
+            margin-bottom: 10px;
+        }
+    }
+
+    &__link {
+        font-size: 14px;
+        font-weight: 500;
+        color: $accent;
+
+        &:hover {
+            opacity: .8;
+        }
+    }
+}
+
+.date-time {
+    display: inline-block;
+    font-size: 14px;
+    color: $gray;
+
+    &--blog {
+        margin-bottom: 15px;
+    }
+}

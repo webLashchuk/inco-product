@@ -1,0 +1,20 @@
+@include('components/main/_head.html', {
+    "pageTitle": "Печать"
+})
+
+@include('components/main/_header.html', {
+    "pageHeader": "header__secondary",
+    "printActive": "menu__link--active"
+})
+
+<main class="main main--secondary-bg">
+
+    @include('components/print/_print.html')
+    
+    @include('components/main/_callback.html')
+    
+</main>
+
+@include('components/main/_footer.html')
+
+@include('components/main/_footer-scripts.html')

@@ -1,0 +1,34 @@
+.post {
+    &__container {
+        max-width: 840px;
+    }
+
+    &__img {
+        margin-bottom: 30px;
+    }
+
+    &__img img {
+        object-fit: contain;
+
+        @include mq('tablet') {
+            height: 350px;
+        }
+
+        @include mq('phone') {
+            height: 230px;
+        }
+
+        @include mq('phone-2') {
+            height: 180px;
+        }
+    }
+
+    &__text  p{
+        font-size: 16px;
+        color: $black;
+
+        &:not(:last-child) {
+            margin-bottom: 20px;
+        }
+    }
+}

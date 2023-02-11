@@ -1,0 +1,20 @@
+@include('components/main/_head.html', {
+"pageTitle": "Блог"
+})
+
+@include('components/main/_header.html', {
+"pageHeader": "header__secondary",
+"blogActive": "menu__link--active"
+})
+
+<main class="main main--secondary-bg">
+
+    @include('components/blog/_blog.html')
+
+    @include('components/main/_callback.html')
+    
+</main>
+
+@include('components/main/_footer.html')
+
+@include('components/main/_footer-scripts.html')

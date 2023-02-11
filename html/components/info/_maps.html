@@ -1,0 +1,22 @@
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaCiweInOfi_z9-6cSxR7HqqE9tc46XQM&callback=initMap&v=weekly"
+    defer>
+    </script>
+<script>
+    let map;
+
+    function initMap() {
+        const inColor = { lat: 49.99826605007041, lng: 36.23675716749905 };
+        const map = new google.maps.Map(document.getElementById("map"), {
+            center: inColor,
+            zoom: 17,
+        });
+
+        const marker = new google.maps.Marker({
+            position: inColor,
+            map: map,
+        });
+    }
+
+    window.initMap = initMap;
+</script>

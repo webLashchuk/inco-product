@@ -1,0 +1,82 @@
+.features {
+    padding-bottom: 75px;
+
+    &__inner {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 20px;
+        
+        @include mq('tablet-2') {
+            grid-template-columns: repeat(2, 1fr);
+            margin: 0 auto;
+        }
+
+        @include mq('phone-2') {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__item {
+        max-width: 275px;
+        text-align: left;
+        padding-top: 108px;
+        background-position: top left;
+        background-repeat: no-repeat;
+        background-size: 88px;
+        
+        @include mq('desktop') {
+            max-width: 240px;
+            width: 100%;
+            
+            &:not(:last-child) {
+                margin-right: 20px;
+            }
+        }
+        
+        @include mq('tablet-2') {
+            max-width: 275px;
+        }
+        
+        @include mq('tablet') {
+            padding-top: 88px;
+            background-size: 68px;
+        }
+
+        &--supply {
+            background-image: url('../images/sprite.svg#supply');
+        }
+
+        &--loyalty {
+            background-image: url('../images/sprite.svg#loyalty');
+        }
+
+        &--timing {
+            background-image: url('../images/sprite.svg#timing');
+        }
+
+        &--quality {
+            background-image: url('../images/sprite.svg#quality');
+        }
+    }
+
+    &__caption {
+        max-width: 210px;
+        font-size: 20px;
+        font-weight: 400;
+        color: $accent;
+        margin-bottom: 5px;
+
+        @include mq('desktop') {
+            max-width: 190px;
+            font-size: 16px;
+        }
+    }
+
+    &__text {
+        font-size: 16px;
+
+        @include mq('desktop') {
+            font-size: 14px;
+        }
+    }
+}

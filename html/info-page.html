@@ -1,0 +1,22 @@
+@include('components/main/_head.html', {
+    "pageTitle": "Контакты"
+})
+
+@include('components/main/_header.html', {
+"pageHeader": "header__secondary",
+"infoActive": "menu__link--active"
+})
+
+<main class="main main--secondary-bg">
+
+    @include('components/info/_info.html')
+    
+    @include('components/main/_callback.html')
+    
+</main>
+
+@include('components/main/_footer.html')
+
+@include('components/info/_maps.html')
+
+@include('components/main/_footer-scripts.html')

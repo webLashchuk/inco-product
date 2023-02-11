@@ -1,0 +1,112 @@
+<section class="section basket">
+    <div class="container basket__container">
+        <h1 class="title basket__title">Корзина</h1>
+
+        <header class="basket__header">
+            <ul class="basket__list basket__list--header">
+                <li class="basket__item">
+                    №
+                </li>
+                <li class="basket__item">
+                    Название
+                </li>
+                <li class="basket__item">
+                    Количество
+                </li>
+                <li class="basket__item">
+                    Цена
+                </li>
+            </ul>
+        </header>
+
+        <article class="basket-product">
+            <ul class="basket-product__list">
+                <li class="basket-product__item">
+                    <span>1</span>
+                </li>
+                <li class="basket-product__item">
+                    <a class="basket-product__link" href="#">
+                        <h2 class="basket-product__title">
+                            Футболка «Хорош, но не лучший»
+                        </h2>
+                        <div class="basket-product__filter basket-product__filter--size">
+                            Размер:
+                            <span>
+                                XL
+                            </span>
+                        </div>
+                        <div class="basket-product__filter basket__filter--color">
+                            Цвет:
+                            <span>
+                                Фиолетовый
+                            </span>
+                        </div>
+                    </a>
+                </li>
+                <li class="basket-product__item">
+                    <label class="counter" for="count1"></label>
+                    <input class="counter basket-product__counter" type="number" id="count1" name="count" value="1"
+                        min="1">
+                </li>
+                <li class="basket-product__item">
+                    <span class="basket-product__price">380 грн</span>
+                </li>
+                <li class="basket-product__item">
+                    <button class="basket-product__close-btn">
+                        <span class="sr-only">Удалить товар</span>
+                    </button>
+                </li>
+            </ul>
+        </article>
+
+        <article class="basket-product">
+            <ul class="basket-product__list">
+                <li class="basket-product__item">
+                    <span>2</span>
+                </li>
+                <li class="basket-product__item">
+                    <a class="basket-product__link" href="#">
+                        <h2 class="basket-product__title">
+                            Футболка «Хорош, но не лучший»
+                        </h2>
+                        <div class="basket-product__filter basket-product__filter--size">
+                            <span>
+                                Размер:
+                            </span>
+                            <span>
+                                L
+                            </span>
+                        </div>
+                        <div class="basket-product__filter basket__filter--color">
+                            <span>
+                                Цвет:
+                            </span>
+                            <span>
+                                Красный
+                            </span>
+                        </div>
+                    </a>
+                </li>
+                <li class="basket-product__item">
+                    <label class="counter" for="count2"></label>
+                    <input class="counter basket-product__counter" type="number" id="count2" name="count" value="2"
+                        min="1">
+                </li>
+                <li class="basket-product__item">
+                    <span class="basket-product__price">760 грн</span>
+                </li>
+                <li class="basket-product__item">
+                    <button class="basket-product__close-btn">
+                        <span class="sr-only">Удалить товар</span>
+                    </button>
+                </li>
+            </ul>
+        </article>
+
+        <footer class="basket__footer">
+            <span class="basket__total">Итого:</span>
+            <span class="basket__total-price">1140 грн</span>
+            <a class="main-btn basket__main-btn" href="#">Оформить заказ</a>
+        </footer>
+    </div>
+</section>

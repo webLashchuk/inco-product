@@ -1,0 +1,69 @@
+<section class="section product">
+    <div class="container product__container">
+        <a class="link breadcrumbs" href="#">Вернуться в каталог</a>
+        <div class="product__wrapper">
+            <div class="product__img">
+                <img src="images/product/t-shirt.jpg" width="460" height="460" alt="Футболка «Хорош, но не лучший»">
+            </div>
+            <div class="product__inner">
+                <h1 class="article-title product__article-title">Футболка «Хорош, но не лучший»</h1>
+                <p class="product__text">
+                    Футбо́лка — предмет нательной одежды для обоих полов, обычно не имеющий пуговиц, воротника и
+                    карманов, с короткими либо длинными рукавами, закрывающий туловище, часть рук и верх бёдер,
+                    надевается через голову.
+                </p>
+                <form class="product-filter" action="#">
+                    <h2 class="product-filter__caption">Размер футболки</h2>
+                    <ul class="product-filter__list">
+                        <li class="product-filter__item">
+                            <input class="product-filter__size-checkbox" type="radio" id="size-s" name="size"
+                                value="size-s" checked>
+                            <label class="product-filter__size-label" for="size-s">S</label>
+                        </li>
+                        <li class="product-filter__item">
+                            <input class="product-filter__size-checkbox" type="radio" id="size-m" value="size-m"
+                                name="size">
+                            <label class="product-filter__size-label" for="size-m">M</label>
+                        </li>
+                        <li class="product-filter__item">
+                            <input class="product-filter__size-checkbox" type="radio" id="size-l" value="size-l"
+                                name="size">
+                            <label class="product-filter__size-label" for="size-l">L</label>
+                        </li>
+                        <li class="product-filter__item">
+                            <input class="product-filter__size-checkbox" type="radio" id="size-xl" value="size-xl"
+                                name="size">
+                            <label class="product-filter__size-label" for="size-xl">XL</label>
+                        </li>
+                    </ul>
+                    <h2 class="product-filter__caption">Цвет</h2>
+                    <ul class="product-filter__list">
+                        <li class="product-filter__item">
+                            <input class="product-filter__color-checkbox" type="radio" id="purple" name="color"
+                                value="purple" checked>
+                            <label class="product-filter__color-label product-filter__color-label--purple"
+                                for="purple"></label>
+                        </li>
+                        <li class="product-filter__item">
+                            <input class="product-filter__color-checkbox" type="radio" id="pink" name="color"
+                                value="pink">
+                            <label class="product-filter__color-label product-filter__color-label--pink"
+                                for="pink"></label>
+                        </li>
+                        <li class="product-filter__item">
+                            <input class="product-filter__color-checkbox" type="radio" id="green" name="color"
+                                value="green">
+                            <label class="product-filter__color-label product-filter__color-label--green"
+                                for="green"></label>
+                        </li>
+                    </ul>
+                    <div class="product-filter__box">
+                        <label class="counter" for="count"></label>
+                        <input class="counter product-filter__counter" type="number" id="count" name="count" value="1" min="1">
+                        <button class="main-btn product-filter__main-btn" type="submit">В корзину</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

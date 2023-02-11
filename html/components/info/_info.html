@@ -1,0 +1,90 @@
+<section class="section info">
+    <div class="container info__container">
+        <h1 class="title info__title">Контакты</h1>
+        <div class="info__wrapper">
+            <div class="info__inner">
+                <ul class="contacts">
+                    <li class="contacts__item contacts__item">
+                        <a class="link contacts__link contacts__link contacts__link--social" href="tel:+380950173045">
+                            095 017 30 45
+                        </a>
+                    </li>
+                    <li class="contacts__item contacts__item">
+                        <a class="link contacts__link" href="tel:+380688104688">
+                            068 810 46 88
+                        </a>
+                    </li>
+                    <li class="contacts__item contacts__item">
+                        <a class="link contacts__link" href="mailto:incolor.ra@gmail.com">
+                            incolor.ra@gmail.com
+                        </a>
+                    </li>
+                </ul>
+
+                <h2 class="info__caption">График работы</h2>
+                <ul class="schedule">
+                    <li class="schedule__item">
+                        <span class="schedule__days">
+                            Понедельник-Пятница
+                        </span>
+                        <div class="schedule__time">
+                            <span>c</span>
+                            <time>10:00</time>
+                            <span>до</span>
+
+                            <time>18:00</time>
+                        </div>
+                    </li>
+                    <li class="schedule__item">
+                        <span class="schedule__days">
+                            Суббота-Воскресенье
+                        </span>
+                        <span>Выходной</span>
+                    </li>
+                </ul>
+
+                <h2 class="info__caption">Мы в соцсетях</h2>
+
+                <ul class="social">
+                    <li class="social__item">
+                        <a class="social__link" href="#"
+                            style="background-image:url('images/sprite.svg#icon-facebook')"></a>
+                    </li>
+                    <li class="social__item">
+                        <a class="social__link" href="#"
+                            style="background-image:url('images/sprite.svg#icon-instagram')"></a>
+                    </li>
+                </ul>
+            </div>
+            <form class="callback-form" action="#">
+                <h2 class="callback-form__caption">Обратная cвязь</h2>
+                <div class="callback-form__item">
+                    <label class="callback-form__label " for="name">
+                    </label>
+                    <input class="callback-form__field" type="text" id="name" name="name" placeholder="Ваше имя"
+                        required="required">
+                </div>
+                <div class="callback-form__item">
+                    <label class="callback-form__label" for="email">
+                    </label>
+                    <input class="callback-form__field" type="email" id="email" name="email" placeholder="Email"
+                        required="required">
+                </div>
+                <div class="callback-form__item">
+                    <label class="callback-form__label" for="message">
+                    </label>
+                    <textarea class="callback-form__field callback-form__field--textarea" name="message" id="message"
+                        placeholder="Сообщение" required="required"></textarea>
+                </div>
+                <button class="main-btn callback-form__main-btn" type="submit">Отправить</button>
+            </form>
+        </div>
+        <address class="info__address">
+            <p class="info__caption">Адрес</p>
+            <span class="info__location">
+                г. Харьков, ул. Чернышевская, 15
+            </span>
+        </address>
+        <div id="map"></div>
+    </div>
+</section>

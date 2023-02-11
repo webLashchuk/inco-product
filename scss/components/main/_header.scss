@@ -1,0 +1,367 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 196px;
+    background: linear-gradient(180deg, #005F79 -35.2%, rgba(0, 95, 121, 0) 100%);
+    color: $white;
+    z-index: 3;
+    padding: 52px 0 0;
+    transition: padding .3s;
+
+    @include mq('tablet-2') {
+        padding: 30px 0 0;
+    }
+
+    @include mq('phone') {
+        height: auto;
+        background: transparent;
+        padding: 20px 0 0;
+    }
+
+    &__container {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    &__inner {
+        margin-right: auto;
+    }
+
+    &__logo {
+        cursor: pointer;
+        z-index: 1;
+        @extend %logo-action;
+    }
+
+    &__secondary {
+        height: auto;
+        background: none;
+        color: $primary;
+        position: fixed;
+        background-color: $bgColor;
+        padding: 0;
+        transition: height .6s;
+
+        &::before {
+            content: "";
+            position: absolute;
+            background-image: url('../images/header-bg.svg');
+            background-size: cover;
+            background-position: center;
+            inset: 0;
+        }
+    }
+
+    &__secondary .header__container {
+        max-width: 100%;
+        flex-direction: column-reverse;
+        padding: 0;
+    }
+
+    &__secondary .header__inner {
+        width: 100%;
+        background-color: $bgColorDark;
+        z-index: 1;
+    }
+
+    &__secondary .header-menu {
+        max-width: 1480px;
+        width: 100%;
+        height: 140px;
+        padding: 0 10px;
+        margin: 0 auto;
+        transition: height .3s;
+
+
+        @include mq('desktop') {
+            height: 100px;
+        }
+
+        @include mq('tablet-2') {
+            height: 80px;
+        }
+
+        &__link {
+            height: 100%;
+        }
+    }
+
+    &__secondary--sticky .header-menu {
+        height: 80px;
+
+        @include mq('phone') {
+            height: 60px;
+            box-shadow: 0px 0px 10px 2px $primary;
+        }
+
+        @include r(420) {
+            box-shadow: 0px 0px 10px 2px $primary;
+        }
+    }
+
+    &__secondary .burger-btn--open {
+        display: none;
+
+        @include mq('tablet-2') {
+            display: block;
+            margin-right: 30px;
+        }
+    }
+
+    &__secondary .burger-btn {
+
+        &__line {
+            background-color: $primary;
+        }
+
+        &::before,
+        &::after {
+            background-color: $primary;
+        }
+    }
+
+    &__secondary .burger-btn--close {
+
+        &::before,
+        &::after {
+            background-color: $white;
+        }
+    }
+
+    &__secondary .header__logo {
+        display: block;
+
+        @include mq('tablet') {
+            max-width: 80px;
+        }
+
+        @include mq('phone-2') {
+            display: none;
+        }
+    }
+
+    &__secondary .callback-btn {
+        border-color: $primary;
+        color: $primary;
+
+        &::before {
+            background-color: $primary;
+        }
+
+        &:hover {
+            color: $dark;
+            border-color: transparent;
+
+            &::before {
+                background-color: $dark;
+            }
+        }
+
+        &:active {
+            color: $primary;
+            border-color: $primary;
+
+            &::before {
+                background-color: $primary;
+            }
+        }
+    }
+
+    &__secondary .contacts {
+        position: relative;
+        max-width: 1480px;
+        display: flex;
+        justify-content: flex-end;
+        margin: 0 auto;
+        padding: 10px;
+
+        @include mq('phone') {
+            display: none;
+        }
+
+        @include r(420) {
+            display: none;
+        }
+
+        &__item {
+            position: relative;
+
+            &:not(:last-child) {
+                margin-right: 45px;
+                margin-bottom: 0;
+            }
+        }
+
+        &__link {
+            &--social {
+                @extend %social-link;
+            }
+        }
+    }
+
+    &__secondary .cart {
+        &::before {
+            background-color: $primary;
+        }
+    }
+
+    &__logo {
+        display: none;
+        margin-right: auto;
+    }
+}
+
+.header-menu {
+    display: flex;
+    align-items: center;
+
+    @include mq('desktop') {
+        justify-content: space-between;
+        width: 70%;
+    }
+
+    @include mq('tablet-2') {
+        width: 100%;
+    }
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    margin-right: 92px;
+    height: 100%;
+
+    &--main {
+        @include mq('tablet-2') {
+            display: none;
+        }
+    }
+
+    @include mq('desktop') {
+        margin-right: auto;
+    }
+
+    &:not(:last-child) {
+        gap: 0 66px;
+
+        @include mq('desktop') {
+            gap: 0 40px;
+        }
+    }
+
+    &--footer {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+    }
+
+    &--mobile {
+        display: inline-block;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    &__item {
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: 100%;
+
+        &--footer {
+            &:not(:last-child) {
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    &__link {
+        display: inline-block;
+
+        &--active {
+
+            &::before {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 6px;
+                background-color: $orange;
+                left: 0;
+                bottom: 0;
+            }
+        }
+
+        &--mobile {
+            width: 100%;
+            padding: 10px;
+
+            &.menu__link--active {
+                background-color: $primary;
+                &::before {
+                    width: 0%;
+                }
+            }
+        }
+    }
+}
+
+.cart {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    margin-right: 71px;
+    transition: box-shadow .3s;
+
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 24px;
+        height: 24px;
+        mask-image: url('../images/sprite.svg#icon-cart');
+        mask-repeat: no-repeat;
+        background-color: $white;
+        transition: background-color .3s;
+    }
+
+    &__count {
+        display: none;
+    }
+
+    &--on .cart__count {
+        display: block;
+        position: absolute;
+        display: inline-block;
+        left: 14px;
+        bottom: 14px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 15px;
+        height: 15px;
+        font-size: 10px;
+        border-radius: 50%;
+        background-color: $orange;
+        color: $primary;
+        padding: 1px;
+    }
+
+    &:focus {
+        box-shadow: 0 0 0 2px $primary;
+    }
+
+    &:hover {
+        &:before {
+            background-color: $hoverLink;
+        }
+    }
+
+    &:active {
+        &:before {
+            background-color: $primary;
+        }
+    }
+}
